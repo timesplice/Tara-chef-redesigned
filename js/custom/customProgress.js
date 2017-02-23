@@ -7,8 +7,8 @@ function add_progress(progress_bar_id,progress_status,estimated_time,tableName){
         strokeWidth: 6,
         easing: 'easeInOut',
         duration: 1400,
-        color: '#fff',
-        trailColor: '#fff',
+        color: '#000',
+        trailColor: '#000',
         trailWidth: 1,
         svgStyle: null,
         step: function(state, circle) {

@@ -29,7 +29,33 @@ function changeChefResponseFormSubmit(){
         var msg = $('#chefResponseMsg  option:selected').val();
         var hours = parseInt($('#chefEstimatedHours  option:selected').val());
         var mins = parseInt($('#chefEstimatedMins  option:selected').val());
-        var estimatedTime = hours*60+mins;
+        sendEstimatedTime(msg,hours,mins);
+        /*var estimatedTime = hours*60+mins;
+        
+        console.log('Message:',msg);
+        console.log("Estimated Time:",estimatedTime);
+        
+        presentUserOrder['timeStamp']=presentHotelOrder.timeStamp=new Date().getTime();
+        presentUserOrder['waitingTime']=presentHotelOrder.waitingTime=estimatedTime;
+        presentUserOrder['chefReply'] = msg; 
+        presentUserOrder['bill']=presentOrderBill;
+
+        //var newUserOrderKey = firebase.database().ref().child('userOrders/'+presentHotelOrder.user).push().key;
+          
+        firebase.database().ref('hotelOrders/'+presentHotelOrder.hotel +'/'+ presentHotelOrder.order).update(presentHotelOrder);
+        firebase.database().ref('userOrders/'+presentHotelOrder.user +'/'+ presentHotelOrder.order).set(presentUserOrder);
+        
+        //adding progress bar to table
+        //need to add progress bar, call loop, with all tables dict
+        startTimerForOrder(presentHotelOrder);
+        
+        console.log('response sent to user');*/
+        
+    });
+}
+
+function sendEstimatedTime(msg,hours,mins){
+    var estimatedTime = hours*60+mins;
         
         console.log('Message:',msg);
         console.log("Estimated Time:",estimatedTime);
@@ -49,9 +75,8 @@ function changeChefResponseFormSubmit(){
         startTimerForOrder(presentHotelOrder);
         
         console.log('response sent to user');
-        
-    });
 }
+
 
 function orderCompleted(){
     console.log('order completer');
