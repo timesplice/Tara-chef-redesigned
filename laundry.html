@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tara Chef</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/propeller.min.css" rel="stylesheet">
+
+    <style>
+      .custom_food_class{
+        margin-top:20px;
+      }
+      .custom_food_desc{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+      }
+      .custom_food_name{
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 70%;
+          overflow: hidden;
+      }
+    </style>
+  </head>
+  
+  <body>
+  <div class="custom-home-container" id="tables_home">           
+    
+  </div>
+
+  <div class="custom-order-container" id="order_home">
+    
+    <!--div class="col-md-4 bg-info text-center">
+      hello
+    </div-->
+    <div class="row">
+      <button data-target="#form-dialog" data-toggle="modal" class="btn col-md-4 pmd-ripple-effect btn-primary pmd-z-depth" type="button">Set Estimated Time</button>
+      <button class="btn col-md-4 pmd-ripple-effect btn-success pmd-z-depth" type="button" id="deliverOrder">Order Completed</button>
+      <button class="btn col-md-4 pmd-ripple-effect btn-danger pmd-z-depth" type="button" id="backToHome">Back</button>
+    </div> 
+ 
+    <!--div class="col-md-3">
+
+      <div class="pmd-card pmd-card-inverse pmd-z-depth">
+          <div class="pmd-card-title">
+              <div class="media-left">
+                  <a href="javascript:void(0);" class="avatar-list-img">
+                      <img width="40" height="40" src="http://propeller.in/assets/images/profile-pic.png">
+                  </a>
+              </div>
+              <div class="media-body media-middle">
+                  <h3 class="pmd-card-title-text">Two-line item                    
+                  </h3>
+                  <span class="pmd-card-subtitle-text">Secondary text</span>                  
+              </div>
+              <div class="media-right">
+                <span class="badge badge-success pmd-ripple-effect text-right">2</span>
+              </div>
+          </div>
+          
+          <div class="pmd-card-media">
+              <img width="1184" height="666" class="img-responsive" src="http://propeller.in/assets/images/profile-pic.png">
+          </div>
+          
+          <div class="pmd-card-body">              
+              Cards provide context and an entry point to more robust information and views. Don't overload cards with extraneous information or actions.
+          </div>          
+        
+      </div>
+
+    </div-->
+
+    <div id="order_items">
+
+    </div>
+
+  </div>
+
+ <!-- popup model-->    
+    <div tabindex="-1" class="modal fade" id="form-dialog" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header pmd-modal-bordered">
+            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+            <h2 class="pmd-card-title-text">Estimated Time to cook</h2>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal" id="response_form">
+              
+              <div class="form-group">
+                <select class="form-control" id="chefResponseMsg" required>
+                      <option value="" disabled selected>choose Message</option>
+                      <option value="Thank you for choosing us">Thank you for choosing us</option>
+                      <option value="Thank you for your order">Thank you for your order</option>
+                      <option value="Have a good day">Have a good day</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <select class="form-control" id="chefEstimatedHours">
+                      <option value="0" disabled selected>choose Hours</option>
+                      <option value="1">1 Hour</option>
+                      <option value="2">2 Hour</option>
+                      <option value="3">3 Hour</option>
+                  </select>             
+              </div>
+
+              <div class="form-group">
+                <select class="form-control" id="chefEstimatedMins">
+                      <option value="0" disabled selected>choose Minutes</option>
+                      <option value="15">15 Minutes</option>
+                      <option value="30">30 Minutes</option>
+                      <option value="45">45 minutes</option>
+                  </select>
+              </div>
+
+              <div class="pmd-modal-action">
+                <button type="button" data-dismiss="modal"  class="btn pmd-ripple-effect btn-primary" id="submitSetTimer">Save changes</button>
+                <button type="button" data-dismiss="modal"  class="btn pmd-ripple-effect btn-default">Discard</button>
+              </div>       
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/propeller.min.js"></script>
+    <script type="text/javascript" src="js/progressbar.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+
+    <script type="text/javascript" src="js/custom/CustomIndex.js"></script>
+    <script type="text/javascript" src="js/custom/customProgressForTest.js"></script>
+    <script type="text/javascript" src="js/custom/processVoice.js"></script>
+    <script type="text/javascript" src="js/custom/CustomFirebaseLaundry.js"></script>
+    <script type="text/javascript" src="js/custom/apiai.js"></script>
+  </body>
+</html>
