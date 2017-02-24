@@ -29,5 +29,6 @@ $('#mic').click(function(){
 
 function showHome(){
     $('#order_home').hide();
-    $('#tables_home').show();    
+    $('#tables_home').show();
+    document.getElementById('order_items').innerHTML =""; 
 }

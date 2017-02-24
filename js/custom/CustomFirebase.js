@@ -81,11 +81,14 @@ function sendEstimatedTime(msg,hours,mins){
 function orderCompleted(){
     console.log('order completer');
 
-    presentHotelOrder.delivered = true;
-    progress_bars_loop[presentHotelOrder.table] = false;
+    //presentHotelOrder.delivered = true;
     firebase.database().ref('hotelOrders/'+presentHotelOrder.hotel +'/'+ presentHotelOrder.order+'/delivered').set(true);
     firebase.database().ref('userOrders/'+presentHotelOrder.user +'/'+ presentHotelOrder.order+'/delivered').set(true);
-        
+     progress_bars[presentHotelOrder.table].animate(0);  
+        //order.blinking=true; 
+     progress_bar_blink[presentHotelOrder.table] = true;
+    progress_bars_loop[presentHotelOrder.table] = false;
+    
     //presentHotelOrder = null;
 
     $('#order_home').hide();
