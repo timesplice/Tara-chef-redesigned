@@ -20,10 +20,10 @@ $('#mic').click(function(){
     if(recognizing == false){
         recognition.start();
     }else{
-        recognition.stop();
+        /*recognition.stop();
         setTimeout(function(){
             recognition.start();
-        },1000);
+        },1000);*/
     }
 });
 
