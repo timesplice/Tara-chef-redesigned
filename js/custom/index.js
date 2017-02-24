@@ -8,6 +8,15 @@ $('#deliverOrder').click(function(){
 });
 
 $('#mic').click(function(){
+   /*try {
+     recognition.start();
+   }
+   catch(err) {
+       recognition.stop();
+        setTimeout(function(){
+            recognition.start();
+        },1000);
+   }*/
     if(recognizing == false){
         recognition.start();
     }else{

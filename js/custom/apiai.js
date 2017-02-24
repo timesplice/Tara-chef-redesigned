@@ -38,6 +38,7 @@ function process_api_ai_results(data){
                 case 'show order yes no':
                     playStaticVoice([data.result.fulfillment.speech],false);
                     if(present_to_show_order != null){
+                        progress_bar_blink[present_to_show_order.table] = false;
                         openTableOrder(present_to_show_order);
                     }
                     break;
@@ -68,7 +69,14 @@ function process_api_ai_results(data){
             openTableOrder(orderNamesAndOrders[data.result.parameters.tableName]);
             break;
         case 'getestimatedtime':
-             playStaticVoice([data.result.fulfillment.speech],false);
+            if(data.result.parameters['number-integer']!=null && data.result.parameters['number-integer'].length > 0){
+                console.log('estimated time in minutes: '+data.result.parameters['number-integer']);
+                 sendEstimatedTime('Thank you for choosing us',0,parseInt(data.result.parameters['number-integer']));
+                 playStaticVoice([data.result.fulfillment.speech+" "+data.result.parameters['number-integer']+" minutes"],true);                 
+            }else{
+                console.log('failed to find estimated time');
+                playStaticVoice([data.result.fulfillment.speech],true);                
+            }
             break;
         
     }

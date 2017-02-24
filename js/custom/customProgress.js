@@ -31,7 +31,7 @@ function loop_progress(tableId,elapsedTime,estimatedTime,voicePlayed) {
      console.log('loop elapsed time:'+elapsedTime);
      console.log('loop waiting time:'+estimatedTime);
      console.log('progressPercentage:'+progressPercentage)
-
+     debugger;
      
      if(progressPercentage<0.50){
         progress_bars[tableId]._opts.color = '#ffffff';
@@ -56,7 +56,7 @@ function loop_progress(tableId,elapsedTime,estimatedTime,voicePlayed) {
      $("#"+tableId).css("background-color", '#ededed');
 
    if (elapsedTime > estimatedTime) {
-     if(progressPercentage >= 100)
+     if(progressPercentage >= 1)
         $("#"+tableId).css("background-color", 'red');
         
         progress_bars[tableId].animate(0);
@@ -77,12 +77,27 @@ function loop_progress(tableId,elapsedTime,estimatedTime,voicePlayed) {
  }
 
 
-function blink(table,color){
+function blinkOld(table,color){
     $("#"+table).css("background-color", '#ededed');
     if(progress_bar_blink[table] == false)
         return;
     $("#"+table).css("background-color", color);
     $("#"+table).fadeOut('slow', function(){
+        $(this).fadeIn('slow', function(){        
+            blink(table,color);
+            //console.log('hello')
+        });
+    });
+}
+
+function blink(table,color){
+    $("#"+table+" > svg > path:nth-child(2)").attr("fill-opacity", '100');
+    
+    $("#"+table+" > svg > path:nth-child(2)").attr("fill", '#ededed');
+    if(progress_bar_blink[table] == false)
+        return;
+    $("#"+table+" > svg > path:nth-child(2)").attr("fill", color);
+    $("#"+table+" > svg > path:nth-child(2)").fadeOut('slow', function(){
         $(this).fadeIn('slow', function(){        
             blink(table,color);
             //console.log('hello')
