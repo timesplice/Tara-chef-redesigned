@@ -38,6 +38,7 @@ function process_api_ai_results(data){
                 case 'show order yes no':
                     playStaticVoice([data.result.fulfillment.speech],false);
                     if(present_to_show_order != null){
+                        progress_bar_blink[present_to_show_order.table] = false;
                         openTableOrder(present_to_show_order);
                     }
                     break;

@@ -162,7 +162,7 @@ function orderAddedToHotel(order){
         progress_bar_blink[order.table] = true;
         blink(order.table,'green');
         $('#'+order.table).click(function(){
-            progress_bar_blink[order.table] = false
+            progress_bar_blink[order.table] = false;
             openTableOrder(order);
         });
 
@@ -237,8 +237,8 @@ function openTableOrder(order){
     //hide tables and show single table order
     console.log('clicked order:',order);
     $('#tables_home').hide();
-    document.getElementById('order_items').innerHTML ="";    
     $('#order_home').show();
+    document.getElementById('order_items').innerHTML ="";    
     presentHotelOrder = order;
     presentUserOrder = {};
     presentOrderBill=0;
