@@ -8,14 +8,23 @@ $('#deliverOrder').click(function(){
 });
 
 $('#mic').click(function(){
-    if(recognizing == false){
+   try {
+     recognition.start();
+   }
+   catch(err) {
+       recognition.stop();
+        setTimeout(function(){
+            recognition.start();
+        },1000);
+   }
+    /*if(recognizing == false){
         recognition.start();
     }else{
         recognition.stop();
         setTimeout(function(){
             recognition.start();
         },1000);
-    }
+    }*/
 });
 
 function showHome(){
