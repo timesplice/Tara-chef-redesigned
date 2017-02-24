@@ -66,7 +66,7 @@ function process_api_ai_results(data){
             break;
         case 'showorder':
             playStaticVoice([data.result.fulfillment.speech],false);
-            openTableOrder(orderNamesAndOrders[data.result.parameters.tableName]);
+            openTableOrder(orderNamesAndOrders[data.result.parameters.tableName.toLowerCase()]);
             break;
         case 'getestimatedtime':
             if(data.result.parameters['number-integer']!=null && data.result.parameters['number-integer'].length > 0){
